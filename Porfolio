@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deeksha D Shetty | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --primary: linear-gradient(135deg, #3f51b5, #5c6bc0);
+      --accent: #ff4081;
+      --bg-light: #f5f7fa;
+      --bg-dark: #1a1a1a;
+      --bg-card: #2a2a2a;
+      --text-light: #ffffff;
+      --text-dark: #2c3e50;
+      --text-muted: #6c757d;
+      --border: #e0e0e0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-dark); /* Dark background for the page */
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+      padding: 1rem;
+    }
+
+    header.hero {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--primary);
+      color: white;
+      padding: 1rem 1rem;
+      text-align: center;
+      border-radius: 0 0 24px 24px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .top-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #2c3e50; /* Dark background for the top navigation bar */
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      font-size: 1.2rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .top-header a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      margin-right: 1.5rem;
+      transition: color 0.3s ease;
+    }
+
+    .top-header a:hover {
+      color: #ff4081; /* Accent color on hover */
+    }
+
+    .main-title {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .subtitle {
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: white;
+    }
+
+    #dynamic-text {
+      border-right: 2px solid white;
+      display: inline-block;
+      white-space: nowrap;
+      overflow: hidden;
+      animation: typing 3s steps(30, end), blink 0.5s step-end infinite alternate;
+    }
+
+    @keyframes typing {
+      from {
+        width: 0;
+      }
+      to {
+        width: 100%;
+      }
+    }
+
+    @keyframes blink {
+      from {
+        border-color: transparent;
+      }
+      to {
+        border-color: white;
+      }
+    }
+
+    .section-content {
+      background: var(--bg-card); /* Dark gray background for sections */
+      color: var(--text-light); /* White text for better contrast */
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+      margin-bottom: 2.5rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .section-content:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(255, 255, 255, 0.2); /* Subtle white shadow on hover */
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      margin-top: 3rem;
+      margin-bottom: 1rem;
+      color: var(--accent); /* Accent color for headings */
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .skills-grid div {
+      background: var(--bg-card); /* Dark gray background for better visibility */
+      color: var(--text-light); /* White text for contrast */
+      padding: 1.5rem;
+      border-radius: 12px;
+      border: 1px solid var(--accent); /* Add border for better separation */
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+    .skills-grid div:hover {
+      background: #3a3a3a; /* Slightly lighter gray on hover */
+      transform: translateY(-5px); /* Lift effect */
+    }
+
+    .card {
+      background: var(--bg-card); /* Dark gray background for cards */
+      color: var(--text-light); /* White text for cards */
+      padding: 1.5rem;
+      border-radius: 12px;
+      border: 1px solid var(--accent); /* Add border for better separation */
+      margin-bottom: 1rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+    }
+
+    .card:hover {
+      transform: translateY(-10px); /* Lift effect */
+      box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2); /* Subtle white shadow on hover */
+      background: #3a3a3a; /* Slightly lighter gray on hover */
+    }
+
+    footer {
+      background: #2a2a2a; /* Dark gray footer */
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-top: 4rem;
+      font-size: 1rem;
+      box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.5);
+    }
+
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .footer-section {
+      margin: 0.5rem 0;
+    }
+
+    .footer-section a {
+      margin: 0 5px;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    .footer-section a:hover {
+      color: #e03570; /* Slightly lighter accent color on hover */
+    }
+
+    @media (max-width: 768px) {
+      .footer-container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .footer-section {
+        margin: 1rem 0;
+      }
+    }
+
+    .contact form {
+      display: flex;
+      flex-direction: column;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .contact input, .contact textarea, .contact button {
+      margin-bottom: 1rem;
+      padding: 0.8rem;
+      border: none;
+      border-radius: 8px;
+    }
+
+    .contact input, .contact textarea {
+      background: var(--bg-card);
+      color: var(--text-light);
+    }
+
+    .contact button {
+      background: var(--accent);
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .contact button:hover {
+      background: #e03570;
+    }
+  </style>
+</head>
+<body>
+  <!-- Top Header Section -->
+  <div class="top-header" style="padding: 1rem; font-size: 1.2rem;">
+    <a href="#about" style="color: white; text-decoration: none; font-weight: bold; margin-right: 1.5rem;">About</a>
+    <a href="#skills" style="color: white; text-decoration: none; font-weight: bold; margin-right: 1.5rem;">Skills</a>
+    <a href="#projects" style="color: white; text-decoration: none; font-weight: bold; margin-right: 1.5rem;">Projects</a>
+    <a href="#experience" style="color: white; text-decoration: none; font-weight: bold; margin-right: 1.5rem;">Experience</a>
+    <a href="#education" style="color: white; text-decoration: none; font-weight: bold; margin-right: 1.5rem;">Education</a>
+    <a href="#achievements" style="color: white; text-decoration: none; font-weight: bold;">Achievements</a>
+    <button id="theme-toggle" style="float: right; background: #ff4081; color: white; border: none; padding: 0.5rem 1rem; border-radius: 8px; cursor: pointer;">Light Theme</button>
+  </div>
+
+  <!-- Main Content Section -->
+  <main class="container">
+    <!-- Personal Info Section -->
+    <section id="personal-info" class="personal-info section-content">
+      <h1 class="main-title">Deeksha D Shetty</h1>
+      <p class="subtitle"><span id="dynamic-text"></span></p>
+      <div class="contact-info">
+        <p><i class="fas fa-envelope"></i> <a href="mailto:deekshashetty456456@gmail.com" style="color: white;">deekshashetty456456@gmail.com</a></p>
+        <p><i class="fas fa-map-marker-alt"></i> Udupi, Karnataka, India</p>
+        <p><i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/deeksha-d-shetty" target="_blank" style="color: white;">LinkedIn</a></p>
+      </div>
+    </section>
+
+    <section id="about" class="about section-content">
+      <h2>About Me</h2>
+      <p>I’m an Electronics and Communication Engineering student, passionate about:</p>
+      <ul>
+        <li>Embedded Systems</li>
+        <li>PCB Design</li>
+        <li>Intelligent Automation</li>
+      </ul>
+      <p>Currently a Junior Embedded Systems Intern at Tiny Prism Labs, specializing in innovative hardware solutions and real-time embedded applications.</p>
+    </section>
+
+    <section id="skills" class="skills section-content">
+      <h2>Skills</h2>
+      <div class="skills-grid">
+        <div>
+          <h3>Programming</h3>
+          <p>C, C++, Python</p>
+        </div>
+        <div>
+          <h3>Tools</h3>
+          <p>Keil, MATLAB/Simulink, Cadence Virtuoso, Eagle PCB, SPICE</p>
+        </div>
+        <div>
+          <h3>Protocols</h3>
+          <p>UART, I2C, SPI</p>
+        </div>
+        <div>
+          <h3>Technologies</h3>
+          <p>Embedded systems, Firmware development, PCB layout, IoT</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="projects section-content">
+      <h2>Projects</h2>
+      <div class="card">
+        <h3>Pollution Monitoring Buoy System</h3>
+        <p>Solar-powered ESP32-based buoy to monitor weather and pollution using turbidity, temperature, and motion sensors. Data uploaded in real time via Blynk IoT.</p>
+      </div>
+      <div class="card">
+        <h3>Forest Health Monitoring System</h3>
+        <p>LIDAR and sensor-based system to detect deforestation. Included smoke, temperature, and soil moisture sensing for comprehensive monitoring.</p>
+      </div>
+      <div class="card">
+        <h3>SR Flip-Flop Design using NAND Gates</h3>
+        <p>Designed an SR flip-flop with Cadence, performing layout, DRC, LVS, and parasitic extraction.</p>
+      </div>
+    </section>
+
+    <section id="education" class="education section-content">
+      <h2>Education</h2>
+      <ul>
+        <li><strong>B.Tech – Electronics & Communication</strong>, Sahyadri College of Engineering (2021–2025) – CGPA: 8.03</li>
+        <li><strong>PUC</strong>, Poorna Prajna PU College, Udupi – 89.33%</li>
+        <li><strong>SSLC</strong>, SBIOAES School, Hubli – 93.92%</li>
+      </ul>
+    </section>
+
+    <section id="experience" class="experience section-content">
+      <h2>Experience</h2>
+      <div class="card">
+        <h3>Junior Embedded Systems Intern – Tiny Prism Labs</h3>
+        <p><em>(Jan 2025 – Present)</em></p>
+        <ul>
+          <li>Designed schematics and embedded PCBs.</li>
+          <li>Collaborated on embedded product development.</li>
+          <li>Wrote documentation and performed testing.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>COMEDKARES Intern – Comakers Innovation Hub</h3>
+        <p><em>(Oct–Nov 2023)</em></p>
+        <ul>
+          <li>Developed real-time object and lane detection using Raspberry Pi and OpenCV.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="achievements" class="achievements section-content">
+      <h2>Achievements</h2>
+      <ul>
+        <li>Research paper accepted at ICNEWS 2024 on oceanic environmental monitoring.</li>
+        <li>Winner of AMD Pervasive AI Developer Contest – Raffle Award.</li>
+        <li>Attended Altair IoT Workshop (Embed, Compose, Twin Activate).</li>
+      </ul>
+    </section>
+
+    <section id="contact" class="contact section-content">
+      <h2>Contact Me</h2>
+      <form action="#" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+  </main>
+
+  <button id="back-to-top" style="position: fixed; bottom: 20px; right: 20px; background: #ff4081; color: white; border: none; border-radius: 50%; width: 50px; height: 50px; font-size: 1.5rem; cursor: pointer; display: none;">↑</button>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-section">
+        <p>© 2025 Deeksha D Shetty</p>
+      </div>
+      <div class="footer-section">
+        <a href="https://linkedin.com/in/deeksha-d-shetty" target="_blank" style="color: #ff4081; text-decoration: none;">LinkedIn</a>
+      </div>
+      <div class="footer-section">
+        <p>Follow me on social media:</p>
+        <a href="https://linkedin.com/in/deeksha-d-shetty" target="_blank" style="color: #ff4081; text-decoration: none; margin-right: 10px;">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="mailto:deekshashetty456456@gmail.com" style="color: #ff4081; text-decoration: none;">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const backToTopButton = document.getElementById('back-to-top');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTopButton.style.display = 'block';
+      } else {
+        backToTopButton.style.display = 'none';
+      }
+    });
+
+    backToTopButton.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    const themeToggle = document.getElementById('theme-toggle');
+    const root = document.documentElement;
+
+    themeToggle.addEventListener('click', () => {
+      if (root.style.getPropertyValue('--bg-dark') === '#1a1a1a') {
+        root.style.setProperty('--bg-dark', '#ffffff');
+        root.style.setProperty('--text-light', '#000000');
+        root.style.setProperty('--bg-card', '#f5f5f5');
+        themeToggle.textContent = 'Switch to Dark Theme';
+      } else {
+        root.style.setProperty('--bg-dark', '#1a1a1a');
+        root.style.setProperty('--text-light', '#ffffff');
+        root.style.setProperty('--bg-card', '#2a2a2a');
+        themeToggle.textContent = 'Switch to Light Theme';
+      }
+    });
+
+    const dynamicText = document.getElementById('dynamic-text');
+    const phrases = ['Junior Embedded Systems Intern', 'PCB Design Enthusiast', 'IoT Developer'];
+    let phraseIndex = 0;
+    let charIndex = 0;
+
+    function typeEffect() {
+      if (charIndex < phrases[phraseIndex].length) {
+        dynamicText.textContent += phrases[phraseIndex].charAt(charIndex);
+        charIndex++;
+        setTimeout(typeEffect, 100);
+      } else {
+        setTimeout(eraseEffect, 2000);
+      }
+    }
+
+    function eraseEffect() {
+      if (charIndex > 0) {
+        dynamicText.textContent = phrases[phraseIndex].substring(0, charIndex - 1);
+        charIndex--;
+        setTimeout(eraseEffect, 50);
+      } else {
+        phraseIndex = (phraseIndex + 1) % phrases.length;
+        setTimeout(typeEffect, 500);
+      }
+    }
+
+    typeEffect();
+  </script>
+</body>
+</html>
